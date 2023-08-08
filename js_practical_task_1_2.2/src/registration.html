@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="shortcut icon" href="img/ico.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form id="registration-form" onsubmit="return handleRegistration(event)">
+            <div class="input-group">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required minlength="2" maxlength="30"
+                        pattern="\p{L}+" title="First name should contain only characters (2-30 characters)">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required minlength="2" maxlength="30"
+                        pattern="\p{L}+" title="Last name should contain only characters (2-30 characters)">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required minlength="2" maxlength="30"
+                        title="Email should be between 2 and 30 characters">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required minlength="2" maxlength="30"
+                        title="Password should be between 2 and 30 characters">
+                </div>
+                <div class="form-group">
+                    <label for="re-password">Repeat password:</label>
+                    <input type="password" id="re-password" name="re-password" required minlength="2" maxlength="30"
+                        title="Password should be between 2 and 30 characters">
+                </div>
+            </div>
+            <div class="button-container">
+                <button type="button" onclick="goBack()">Cancel</button>
+                <button type="submit">Register</button>
+            </div>
+        </form>
+        <p id="error-message" class="error-message"></p>
+    </div>
+
+    <script src="js/navigation.js"></script>
+</body>
+
+</html>

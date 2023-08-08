@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Certificate Service</title>
+    <link rel="shortcut icon" href="img/ico.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/tags.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/scroll.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="menu-icon" id="menu-icon">
+                <img src="img/menu.png" alt="Menu">
+            </div>
+            <div class="logo">
+                <h1>Gift Certificate Service</h1>
+            </div>
+            <div class="search">
+                <input id="search-input" type="text" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div class="user-actions">
+                <img id="checkout-button" src="img/shopping_cart.png" alt="Shopping Cart"
+                    onclick="redirect('checkout.html')">
+                <button h id="login-button" onclick="redirect('login.html')">Login</button>
+                <button id="signup-button" onclick="redirect('registration.html')">Sign Up</button>
+            </div>
+        </div>
+
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="index.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="orders.html">Orders</a>
+        </div>
+    </div>
+
+    <div class="tags-container">
+        <ul class="tags-list">
+        </ul>
+    </div>
+
+
+    <div id="product-card" class="product-container">
+    </div>
+
+    <script id="product-card-template" type="text/x-handlebars-template">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="{{imageSrc}}" alt="{{name}}">
+            </div>
+            <div class="product-details">
+                <h3 class="product-name">{{name}}</h3>
+                <p class="product-tags">
+                    {{#each tags}}
+                        <span class="tag">{{this.name}}</span>
+                    {{/each}}
+                </p>
+                <div class="price-and-button">
+                    <p class="product-price">${{price}}</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/certificate.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

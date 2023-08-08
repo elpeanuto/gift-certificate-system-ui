@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="shortcut icon" href="img/ico.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/header.css ">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="menu-icon" id="menu-icon">
+                <img src="img/menu.png" alt="Menu">
+            </div>
+            <div class="logo">
+                <h1>Gift Certificate Service</h1>
+            </div>
+            <div class="search">
+                <input id="search-input" type="text" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div class="user-actions">
+                <img id="checkout-button" src="img/shopping_cart.png" alt="Shopping Cart"
+                    onclick="redirect('checkout.html')">
+                <button h id="login-button" onclick="redirect('login.html')">Login</button>
+                <button id="signup-button" onclick="redirect('registration.html')">Sign Up</button>
+            </div>
+        </div>
+
+        <div class="dropdown-menu" id="dropdown-menu">
+            <a href="index.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="orders.html">Orders</a>
+        </div>
+    </div>
+
+    <div class="page-name">
+        <h2>Orders</h2>
+    </div>
+
+    <div class="selected-container">
+        <div class="selected-items">
+            <h3>Your orders</h3>
+            <div class="item-container">
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="img/test.jpg" alt="Item 1">
+                    </div>
+                    <div class="item-details">
+                        <h3>Order 1</h3>
+                        <p>Description of Order 1</p>
+                    </div>
+                    <div class="item-price">Total: $10</div>
+                </div>
+            </div>
+            <div class="item-container">
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="img/test.jpg" alt="Item 2">
+                    </div>
+                    <div class="item-details">
+                        <h3>Order 2</h3>
+                        <p>Description of Order 2</p>
+                    </div>
+                    <div class="item-price">Total: $20</div>
+                </div>
+            </div>
+
+            <hr class="divider">
+        </div>
+    </div>
+
+    <script src="js/navigation.js"></script>
+
+</body>
+
+</html>

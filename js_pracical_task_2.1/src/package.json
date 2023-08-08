@@ -1,0 +1,21 @@
+{
+  "name": "js_pracical_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --require @babel/register 'test/**/*.spec.js'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/register": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3"
+  }
+}
+
