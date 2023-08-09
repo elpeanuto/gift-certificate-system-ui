@@ -18,11 +18,11 @@ describe('toBase2Converter', () => {
     });
 
     it('should throw an error when input is not a number', () => {
-        expect(() => toBase2Converter('abc')).to.throw('Input must be a valid number.');
+        expect(() => toBase2Converter('abc')).to.throw('Only integer values are allowed.');
     });
 
     it('should throw an error when input is NaN', () => {
-        expect(() => toBase2Converter(NaN)).to.throw('Input must be a valid number.');
+        expect(() => toBase2Converter(NaN)).to.throw('Only integer values are allowed.');
     });
 
     it('should throw an error when input is not an integer', () => {
