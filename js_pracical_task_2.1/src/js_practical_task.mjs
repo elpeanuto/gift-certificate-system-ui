@@ -16,11 +16,7 @@ function secondsToDate(seconds) {
     }
 
     const baseDate = new Date('2020-06-01T00:00:00.000Z');
-    const resultDate = new Date(baseDate.getTime() + parseInt(seconds) * 1000);
-
-    if (isNaN(resultDate.getTime())) {
-        throw new Error('Invalid Date.');
-    }
+    const resultDate = new Date(baseDate.getTime() + ~~seconds * 1000);
 
     return resultDate;
 }
@@ -37,10 +33,6 @@ function secondsToDate(seconds) {
  *      10 -> "1010"
  */
 function toBase2Converter(decimal) {
-    if (typeof decimal !== 'number' || isNaN(decimal)) {
-        throw new Error('Input must be a valid number.');
-    }
-
     if (!Number.isInteger(decimal)) {
         throw new Error('Only integer values are allowed.');
     }
@@ -49,14 +41,14 @@ function toBase2Converter(decimal) {
         throw new Error('Only non-negative numbers are allowed.');
     }
 
-    if (decimal === 0) {
-        return 0;
-    }
-
     if (decimal >= 1024) {
         throw new Error('Input number must be below 1024.');
     }
 
+    if (decimal === 0){
+        return 0;
+    }
+    
     let result = '';
 
     while (decimal > 0) {
@@ -92,10 +84,10 @@ function substringOccurrencesCounter(substring, text) {
     const lowercaseSubstring = substring.toLowerCase();
     const lowercaseText = text.toLowerCase();
 
-    let startIndex = 0;
-    while (lowercaseText.indexOf(lowercaseSubstring, startIndex) !== -1) {
+    let index = lowercaseText.indexOf(lowercaseSubstring);
+    while (index !== -1) {
         counter++;
-        startIndex = lowercaseText.indexOf(lowercaseSubstring, startIndex) + 1;
+        index = lowercaseText.indexOf(lowercaseSubstring, index + 1);
     }
 
     return counter;
@@ -157,18 +149,14 @@ function redundant(str) {
  * @return {number}
  */
 function towerHanoi(disks) {
-    if (typeof disks !== 'number' || !Number.isInteger(disks) || disks < 0 || isNaN(disks)) {
+    if (!Number.isInteger(disks) || disks < 0) {
         throw new Error('The input must be a non-negative integer number.');
     }
 
     if (disks === 1) {
         return 1;
     } else {
-        const movesForPrevDisks = towerHanoi(disks - 1);
-        const moveForCurrentDisk = 1;
-        const movesForPrevDisksAgain = towerHanoi(disks - 1);
-
-        return movesForPrevDisks + moveForCurrentDisk + movesForPrevDisksAgain;
+        return towerHanoi(disks - 1) * 2 + 1;
     }
 }
 
@@ -209,17 +197,6 @@ function matrixMultiplication(matrix1, matrix2) {
     return result;
 }
 
-const matrix1 = [
-    [1, 2],
-    [4, 5],
-    [7, 8]
-];
-
-const matrix2 = [
-    [1, 2, 3],
-    [4, 5, 6]
-];
-
 /**
  * Create a gather function that accepts a string argument and returns another function.
  * The function calls should support continued chaining until order is called.
@@ -247,6 +224,7 @@ function gather(str) {
             throw new Error('Input must be a string.');
         }
         args.push(nextStr);
+        console.log("args: " + args);
         return gatherInner;
     }
 
